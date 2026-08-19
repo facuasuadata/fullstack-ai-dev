@@ -81,11 +81,13 @@ En Direct : Podemos Elegir el modelo y ver la lista de modelos
 URL
 https://llm-stats.com/
 
+
 ##Pregunta en clase
 **¿Q ganan ellos haciendo un modelo de código abierto?**
 Este video responde la pregunta: https://www.youtube.com/watch?v=6BtIQIGqGJc&t=333s
 recomendacion canal de youtube:
 https://www.youtube.com/@matthew_berman
+
 
 ##Conocimiento General Programación
 **(buscar info para mi)
@@ -93,15 +95,20 @@ HTML: Lenguaje utilizado para la web
 CSS: Lenguaje que se usa para darle estilos a una web
 
 ##Glosario
+
 **FOMO** (Miedo a perderse algo)
 Miedo a no esta arctualizado en las últimas novedades de IA
+
 **Censura**
 Los modelos de lenguaje se entrenan con censura, para evitar problemas legales. Trata de manera particular los temas sensibles
 **Jailbreak** 
+
 Encontrar avisos para que la IA no tenga censura, el hacking de los llm
+
 **Alucinaciones**
 Cuando el modelo responde cualquiera. Respuestas que tienen de apariencia correcta pero no lo son.
 El famoso "Si tenes razón, disculpame..."
+
 **Toma de tierra**
 Anclar la respuesta de la IA en fuentes verificables
 
