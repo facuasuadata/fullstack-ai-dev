@@ -6,7 +6,7 @@ from services.persona_service import PersonaService
 
 app = Flask(__name__)
 
-# Una sola instancia, para que las personas agregadas con el POST se mantengan
+# Una sola instancia, para que los cambios (POST, PUT, DELETE) se mantengan
 servicio = PersonaService()
 
 
@@ -47,6 +47,30 @@ def agregar_persona():
         return jsonify({"error": str(error)}), 409
 
     return jsonify(persona_a_json(persona)), 201
+
+
+@app.put("/personas/<int:dni>")
+def modificar_persona(dni):
+    datos = request.get_json()
+
+    try:
+        persona = servicio.modificar_persona(dni, datos["nombre"])
+    except (KeyError, TypeError) as error:
+        return jsonify({"error": f"Datos inválidos: {error}"}), 400
+    except (LookupError, ValueError) as error:
+        return jsonify({"error": str(error)}), 400
+
+    return jsonify(persona_a_json(persona))
+
+
+@app.delete("/personas/<int:dni>")
+def eliminar_persona(dni):
+    try:
+        servicio.eliminar_persona(dni)
+    except LookupError as error:
+        return jsonify({"error": str(error)}), 400
+
+    return jsonify({"mensaje": f"Persona con DNI {dni} eliminada"})
 
 
 if __name__ == "__main__":

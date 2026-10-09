@@ -24,3 +24,17 @@ class RepositorioPersonas:
 
     def obtener_todas(self) -> list[Persona]:
         return self.__personas.copy()
+
+    def actualizar(self, persona: Persona) -> None:
+        for i, existente in enumerate(self.__personas):
+            if existente.dni == persona.dni:
+                self.__personas[i] = persona
+                return
+
+    def eliminar(self, dni: int) -> None:
+        persona = self.obtener_por_dni(dni)
+
+        if persona is not None:
+            self.__personas.remove(persona)
+
+    

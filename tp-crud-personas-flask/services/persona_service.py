@@ -17,3 +17,18 @@ class PersonaService:
 
     def obtener_persona_por_dni(self, dni: int) -> Persona | None:
         return self.repo.obtener_por_dni(dni)
+
+    def modificar_persona(self, dni: int, nombre: str) -> Persona:
+        if self.repo.obtener_por_dni(dni) is None:
+            raise LookupError("La persona no existe.")
+
+        # Persona es inmutable: se crea una nueva (el modelo valida el nombre)
+        persona = Persona(dni, nombre)
+        self.repo.actualizar(persona)
+        return persona
+
+    def eliminar_persona(self, dni: int) -> None:
+        if self.repo.obtener_por_dni(dni) is None:
+            raise LookupError("La persona no existe.")
+
+        self.repo.eliminar(dni)
